@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   validates :title, uniqueness: true
 
   enumerize :status, in: [:draft, :publish], scope: true, predicates: true, default: :draft
+  friendly_id :title, use: [:slugged, :finders]
 
   def self.for(user)
     user.posts.order(created_at: :desc)

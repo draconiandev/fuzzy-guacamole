@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 class User < ApplicationRecord
   extend Enumerize
+  extend FriendlyId
+
   has_many :posts
 
   validates :email, presence: true, uniqueness: true
@@ -9,4 +11,5 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable
 
   enumerize :role, in: [:user, :editor, :admin], scope: true, predicates: true, default: :user
+  friendly_id :email, use: [:slugged, :finders]
 end
