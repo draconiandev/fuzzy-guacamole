@@ -6,13 +6,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag    'register' %>
+    <%#= javascript_pack_tag    'register' %>
   </head>
 
   <body>
-    <%= react_component 'TrekhubNavBar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <%#= react_component 'TrekHubNavbar' %>
+    <%= render 'shared/navbar' %>
+
+    <p class="hide">
+      <% flash.each do |key, message| %>
+        <%= message %>
+      <% end %>
+    </p>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import WebpackerReact from 'webpacker-react';
-import TrekHubNavbar from 'components/TrekhubNavbar.jsx';
+import WebpackerReact from 'webpacker-react'
+import TrekHubNavbar from 'components/TrekhubNavbar.jsx'
 
-WebpackerReact.setup({TrekHubNavbar});
+WebpackerReact.register(TrekHubNavbar)

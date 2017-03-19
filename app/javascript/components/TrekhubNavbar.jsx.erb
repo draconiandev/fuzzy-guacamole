@@ -1,0 +1,14 @@
+import React from 'react';
+import { Navbar, NavItem } from 'react-materialize';
+
+<% helpers = ActionController::Base.helpers %>
+var logo = "<%= image_tag 'trekhub_logo.png' %>"
+
+const TrekHubNavbar = props => (
+  <Navbar brand=logo right>
+    <NavItem href='/posts'>Posts</NavItem>
+    <NavItem href='/tags'>Tags</NavItem>
+  </Navbar>
+);
+
+export default TrekHubNavbar;

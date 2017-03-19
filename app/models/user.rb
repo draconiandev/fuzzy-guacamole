@@ -12,4 +12,8 @@ class User < ApplicationRecord
 
   enumerize :role, in: [:user, :editor, :admin], scope: true, predicates: true, default: :user
   friendly_id :email, use: [:slugged, :finders]
+
+  def admin?
+    role.admin?
+  end
 end

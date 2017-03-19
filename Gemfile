@@ -37,6 +37,7 @@ gem 'devise', '~> 4.2', '>= 4.2.1'
 
 gem 'enumerize', '~> 2.0', '>= 2.0.1'
 gem 'friendly_id', '~> 5.2'
+gem 'materialize-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
