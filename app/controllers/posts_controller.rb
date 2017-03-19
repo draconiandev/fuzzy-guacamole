@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_post, only: :show
+  before_action :find_post, only: [:show, :draft, :publish, :retire]
 
   def new
     @post = post_to_create.new
@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @post = post_to_create.new post_params
+    @post.status = :draft
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created' }
@@ -21,15 +22,27 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.ordered_published_posts
   end
 
   def show; end
 
+  def draft
+    @post.update_attributes(status: :draft)
+  end
+
+  def publish
+    @post.update_attributes(status: :published)
+  end
+
+  def retire
+    @post.update_attributes(status: :retire)
+  end
+
   private
 
   def find_post
-    @post ||= Post.find params[:id]
+    @post = Post.find params[:id]
   end
 
   def post_to_create
