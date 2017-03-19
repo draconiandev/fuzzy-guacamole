@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170319083411) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "slug"
-    t.string "status"
+    t.string "status", default: "draft", null: false
     t.index ["slug"], name: "index_posts_on_slug", using: :gin
     t.index ["status"], name: "index_posts_on_status", using: :gin
     t.index ["title"], name: "index_posts_on_title", using: :gin
@@ -46,9 +46,11 @@ ActiveRecord::Schema.define(version: 20170319083411) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role"], name: "index_users_on_role", using: :gin
+    t.index ["slug"], name: "index_users_on_slug", using: :gin
   end
 
   add_foreign_key "posts", "users"
