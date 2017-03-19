@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form', '~> 3.4'
 #
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 
 gem 'enumerize', '~> 2.0', '>= 2.0.1'

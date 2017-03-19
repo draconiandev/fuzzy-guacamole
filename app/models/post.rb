@@ -14,6 +14,8 @@ class Post < ApplicationRecord
   enumerize :status, in: [:draft, :published, :retire], scope: true, predicates: true, default: :draft
   friendly_id :title, use: [:slugged, :finders]
 
+  mount_uploader :header, HeaderUploader
+
   def tag_list=(names)
     self.tags = names.split(',').map do |name|
       Tag.where(name: name.strip.downcase).first_or_create!

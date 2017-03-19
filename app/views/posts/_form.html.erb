@@ -1,4 +1,4 @@
-<%= simple_form_for post do |f| %>
+<%= simple_form_for post, html: { multipart: true } do |f| %>
   <%= f.error_notification %>
 
   <ul>
@@ -7,8 +7,11 @@
     <% end %>
   </ul>
 
-  <%= f.input :title %>
-  <%= f.input :content %>
+  <%= f.input :title, required: true %>
+  <%= f.input :content, required: true %>
+  <br>
+  <%= f.file_field :header, type: :file, required: true %>
+  <br><br>
   <%= f.input :tag_list, label: 'Enter related tags', placeholder: "Tags separated with comma" %>
   <%= f.submit 'Save to draft' %>
 <% end %>

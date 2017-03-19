@@ -1,8 +1,13 @@
-<h1><%= @post.title %></h1>
-<% @post.tags.each do |tag| %>
-  <%= link_to tag.name.humanize, tags_path(tag) %>
-<% end %>
-<p></p>
-<em><%= @post.user.email %></em>
-<p><%= time_ago_in_words @post.created_at %> ago</p>
-<p><%= @post.content %></p>
+<div class="row">
+  <%= image_tag @post.header.url(:cover), class:'col s12 materialboxed', style: 'height:50vh; padding-top: 1%' %>
+</div>
+<div class="container">
+  <h1><%= @post.title %></h1>
+  <% @post.tags.each do |tag| %>
+    <%= link_to tag.name.humanize, tags_path(tag) %>
+  <% end %>
+  <p></p>
+  <em><%= @post.user.email %></em>
+  <p><%= time_ago_in_words @post.created_at %> ago</p>
+  <p class="flow-text"><%= @post.content %></p>
+</div>
