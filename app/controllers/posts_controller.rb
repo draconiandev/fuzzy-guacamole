@@ -48,4 +48,8 @@ class PostsController < ApplicationController
   def post_to_create
     @post_to_create ||= Post.for current_user
   end
+
+  def post_params
+    params.require(:post).permit(:title, :content, tag_ids: [], tag_attributes: :name)
+  end
 end
