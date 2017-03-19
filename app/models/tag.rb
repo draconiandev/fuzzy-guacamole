@@ -3,7 +3,7 @@ class Tag < ApplicationRecord
   extend FriendlyId
 
   has_many :taggings
-  has_many :posts, through: :taggings
+  has_many :posts, through: :taggings, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 

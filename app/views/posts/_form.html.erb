@@ -1,0 +1,14 @@
+<%= simple_form_for post do |f| %>
+  <%= f.error_notification %>
+
+  <ul>
+    <% post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :tag_list, label: 'Enter related tags', placeholder: "Tags separated with comma" %>
+  <%= f.submit 'Save to draft' %>
+<% end %>

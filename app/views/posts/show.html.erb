@@ -1,0 +1,8 @@
+<h1><%= @post.title %></h1>
+<% @post.tags.each do |tag| %>
+  <%= link_to tag.name.humanize, tags_path(tag) %>
+<% end %>
+<p></p>
+<em><%= @post.user.email %></em>
+<p><%= time_ago_in_words @post.created_at %> ago</p>
+<p><%= @post.content %></p>

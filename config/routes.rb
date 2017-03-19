@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get '/posts/:id/draft',   to: 'posts#draft',   as: :draft_post
   get '/posts/:id/retire',  to: 'posts#retire',  as: :retire_post
 
+  resources :tags
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
