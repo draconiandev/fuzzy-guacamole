@@ -5,6 +5,9 @@ class Post < ApplicationRecord
 
   belongs_to :user
 
+  has_many :taggings
+  has_many :tags, through: :taggings
+
   validates :title, :content, :header, presence: true
   validates :title, uniqueness: true
 
