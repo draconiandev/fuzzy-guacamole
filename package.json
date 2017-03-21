@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.0",
     "babel-loader": "^6.4.1",
     "babel-preset-env": "^1.2.2",
     "babel-preset-react": "^6.23.0",
@@ -22,6 +23,11 @@
     "webpacker-react": "^0.1.0"
   },
   "devDependencies": {
+    "eslint": "^14.1.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^14.1.0",
+    "eslint-plugin-jsx-a11y": "^14.1.0",
+    "eslint-plugin-react": "^14.1.0",
     "webpack-dev-server": "^2.4.2"
   }
 }
